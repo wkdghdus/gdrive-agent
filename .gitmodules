@@ -1,0 +1,3 @@
+[submodule "backend/google_workspace_mcp"]
+	path = backend/google_workspace_mcp
+	url = https://github.com/taylorwilsdon/google_workspace_mcp.git
