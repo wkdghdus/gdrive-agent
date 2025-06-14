@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+google-workspace-mcp
+openai
+langchain
+langgraph
+langchain_mcp_adapters
+langchain-anthropic
