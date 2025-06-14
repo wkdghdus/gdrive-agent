@@ -1,15 +1,21 @@
-from langgraph.prebuilt import create_react_agent
-from agent.nodes.mcp_integration import get_mcp_tools
+from langgraph.prebuilt.chat_agent_executor import create_react_agent
+from langchain_core.prompts import ChatPromptTemplate
 
-tools = get_mcp_tools()
+from backend.agent.prompt import prompt as system_prompt
+from backend.agent.mcp_integration import get_mcp_tools  # async fn
+from typing import Any
 
-agent = create_react_agent(
-    "anthropic:claude-3-7-sonnet-latest",
-    tools
-)
 
-async def invoke_agent(msg: dict):
-    
-    response = await agent.ainvoke(msg)
 
-    return response
+async def invoke_agent(payload: dict[str, Any]) -> dict[str, Any]:
+
+    tools = await get_mcp_tools()
+
+    agent = create_react_agent(
+        prompt=system_prompt,
+        model="anthropic:claude-3-7-sonnet-latest",
+        tools=tools,
+    )
+
+    response = await agent.ainvoke(payload)
+    return {"output": response}
