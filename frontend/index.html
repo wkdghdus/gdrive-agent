@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThirdLayer Chat UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'IBM Plex Serif', serif;
+        background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center">
+    <!-- LOGIN VIEW -->
+    <div id="login-container" class="max-w-md w-full px-6 py-12 text-center">
+      <div class="bg-white rounded-2xl shadow-md p-8">
+        <h1 class="text-3xl font-medium tracking-tight mb-6">Your Google Drive Copilot</h1>
+        <p class="text-gray-600 text-base mb-8 leading-relaxed">
+          Connect your Drive and start chatting with your documents. Seamless access. Smart answers.
+        </p>
+        <button id="connect-drive" class="bg-black text-white text-sm px-6 py-3 rounded-full hover:bg-gray-800 transition-all shadow-sm">
+          Connect Google Drive
+        </button>
+      </div>
+    </div>
+
+    <!-- CHAT VIEW -->
+    <div id="chat-container" class="hidden max-w-2xl w-full px-6 py-10">
+      <div class="flex flex-col bg-white shadow-xl rounded-2xl overflow-hidden min-h-[70vh]">
+        <div id="messages" class="flex-1 overflow-y-auto px-6 py-4 space-y-4 bg-[#fafafa]">
+          <!-- messages will be appended here -->
+        </div>
+        <div id="input-container" class="flex items-center gap-4 border-t border-gray-200 px-6 py-4">
+          <input id="input" type="text" placeholder="Type a message…" class="flex-1 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <button id="send" class="bg-blue-600 text-white px-5 py-3 rounded-xl hover:bg-blue-700 transition-all text-sm font-medium">
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
